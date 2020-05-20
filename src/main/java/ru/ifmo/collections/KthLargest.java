@@ -13,12 +13,7 @@ public class KthLargest {
     private int k;
     private Queue<Integer> s;
     public KthLargest(int k, int[] numbers) {
-        s = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2 - o1;
-            }
-        });
+        s = new PriorityQueue<>();
         this.k = k;
         for (int number : numbers) {
             add(number);

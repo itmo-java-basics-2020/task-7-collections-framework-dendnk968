@@ -56,6 +56,7 @@ public class LruCache<K, V> {
     }
 
     private void moveInStart(Node node) {
+        if (node == root) return;
         node.last.next = node.next;
         node.next.last = node.last;
         node.last = end;

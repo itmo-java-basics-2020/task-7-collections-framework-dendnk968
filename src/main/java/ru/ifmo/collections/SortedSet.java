@@ -38,6 +38,11 @@ public class SortedSet<T> extends AbstractSet<T> {
         return new SortedSet<>(comparator);
     }
 
+    @Override
+    public boolean contains(Object o) {
+        return map.containsKey(o);
+    }
+
     public T[] getSorted() {
         return (T[]) map.keySet().toArray();
     }
@@ -61,5 +66,10 @@ public class SortedSet<T> extends AbstractSet<T> {
     @Override
     public boolean add(T t) {
         return map.put(t, PRESENT) != null;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        return map.remove(o) == PRESENT;
     }
 }
