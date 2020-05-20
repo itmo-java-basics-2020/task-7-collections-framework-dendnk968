@@ -23,7 +23,7 @@ public class SortedSet<T> extends AbstractSet<T> {
     private static final Object PRESENT = new Object();
 
     private SortedSet() {
-        map = new TreeMap<>();
+        map = new TreeMap<T, Object>();
     }
 
     private SortedSet(Comparator<T> comparator) {
