@@ -23,7 +23,7 @@ public class SortedSet<T> extends AbstractSet<T> {
     private static final Object PRESENT = new Object();
 
     private SortedSet() {
-        map = new TreeMap<T, Object>();
+        map = new TreeMap<>();
     }
 
     private SortedSet(Comparator<T> comparator) {
@@ -43,7 +43,7 @@ public class SortedSet<T> extends AbstractSet<T> {
     }
 
     public T[] getReversed() {
-        ArrayList list = new ArrayList<>(map.keySet());
+        ArrayList<T> list = new ArrayList<>(map.keySet());
         Collections.reverse(list);
         return (T[]) list.toArray();
     }
@@ -56,5 +56,10 @@ public class SortedSet<T> extends AbstractSet<T> {
     @Override
     public int size() {
         return map.size();
+    }
+
+    @Override
+    public boolean add(T t) {
+        return map.put(t, PRESENT) != null;
     }
 }

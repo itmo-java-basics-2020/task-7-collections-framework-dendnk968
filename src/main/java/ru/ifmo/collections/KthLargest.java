@@ -11,13 +11,14 @@ import java.util.*;
  */
 public class KthLargest {
     private int k;
-    private Queue<Integer> s = new PriorityQueue<>(new Comparator<Integer>() {
-        @Override
-        public int compare(Integer o1, Integer o2) {
-            return o2 - o1;
-        }
-    });
+    private Queue<Integer> s;
     public KthLargest(int k, int[] numbers) {
+        s = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
         this.k = k;
         for (int number : numbers) {
             add(number);
@@ -25,7 +26,7 @@ public class KthLargest {
     }
 
     public int add(int val) {
-        s.add(val);
+        s.offer(val);
         if (s.size() > k){
             s.poll();
         }
