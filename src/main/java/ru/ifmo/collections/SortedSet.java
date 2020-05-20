@@ -43,14 +43,14 @@ public class SortedSet<T> extends AbstractSet<T> {
         return map.containsKey(o);
     }
 
-    public T[] getSorted() {
-        return (T[]) map.keySet().toArray();
+    public Object[] getSorted() {
+        return map.keySet().toArray();
     }
 
-    public T[] getReversed() {
+    public Object[] getReversed() {
         ArrayList<T> list = new ArrayList<>(map.keySet());
         Collections.reverse(list);
-        return (T[]) list.toArray();
+        return list.toArray();
     }
 
     @Override
